@@ -6,9 +6,6 @@
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
-  <h1 class="text-4xl font-bold underline text-red-500">
-    Hello world!
-    lreomalfdnsa
-  </h1>
+    <?= $post ?>
 </body>
 </html>

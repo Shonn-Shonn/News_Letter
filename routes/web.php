@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/posts', function () {
+    return view('posts');
+});
+
+Route::get('post/{post}',function($slug){
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    if(!file_exists($path))
+    {
+        return redirect('/posts');
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post',[
+        'post' => $post
+    ]);
 });
