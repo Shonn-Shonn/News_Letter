@@ -1,11 +1,4 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-</head>
-<body>
+<x-layout>
     <div class="article">
         <a href="/post/my-first-post">
             <h1 class="text-yellow-500 text-3xl text-bold underline underline-offset-8 pb-2">A Girl’s Guide to Home DIY</h1>
@@ -29,5 +22,4 @@
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam omnis assumenda iure. Harum iure nihil, soluta ut culpa eos quam reiciendis dolorum dignissimos, ducimus assumenda rem mollitia dolor deleniti quos blanditiis. Assumenda, dicta ratione. Neque, nostrum? Odio non sequi dignissimos ea quas nulla, accusamus consequuntur, ratione, sint pariatur explicabo suscipit corrupti sed corporis nemo qui numquam. Suscipit quo sapiente quos illum velit consectetur aspernatur soluta possimus.</p>
     </div>
-</body>
-</html>
+</x-layout>

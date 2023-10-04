@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,10 @@ Route::get('/posts', function () {
 });
 
 Route::get('post/{post}',[PostController::class,'getIndex']);
+
+Route::get('/users/{user}/posts/{post}', function (User $user, Post $post) {
+    return $post;
+})->scopeBindings();
 
 
 Route::prefix('posting')->group(function () {

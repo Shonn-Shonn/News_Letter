@@ -21,7 +21,8 @@ class PostSeeder extends Seeder
             Post::create([
                 'title' => $faker->sentence,
                 'description' => $faker->paragraph,
-                'body' => $faker->text
+                'body' => $faker->text,
+                'user_id' => $faker->numberBetween(1, 20),
             ]);
         }
     }
