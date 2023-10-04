@@ -18,7 +18,9 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
-
 Route::get('post/{post}',[PostController::class,'getIndex']);
 
 
+Route::prefix('posting')->group(function () {
+    Route::get('/show-bar-chart', [PostController::class,'showBarChart']);
+});

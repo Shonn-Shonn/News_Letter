@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -21,5 +21,14 @@ class PostController extends Controller
         return view('post', [
             'post' => $post,
         ]);
+    }
+
+    public function showBarChart()
+    {
+        $aug = Post::whereMonth('created_at', '8')->count();
+        $sep = Post::whereMonth('created_at', '9')->count();
+        $oct = Post::whereMonth('created_at', '10')->count();
+
+        return view('post-show-barchart',compact('aug','sep','oct'));
     }
 }
