@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/posts', function () {
+    return view('posts');
+});
+
+Route::get('post/{post}',[PostController::class,'getIndex']);
+
+
+Route::prefix('posting')->group(function () {
+    Route::get('/show-bar-chart', [PostController::class,'showBarChart']);
 });
