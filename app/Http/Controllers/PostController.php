@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Filesystem\Cache;
 
 class PostController extends Controller
 {
@@ -16,7 +17,9 @@ class PostController extends Controller
             return redirect('/posts');
         }
 
-        $post = file_get_contents($path);
+        $post = cache()->remember("posts.{$slug}",1200, function() use ($path){
+           var_dump(file_get_contents($path));
+        });
 
         return view('post', [
             'post' => $post,
