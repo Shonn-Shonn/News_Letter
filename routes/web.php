@@ -20,7 +20,8 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
-Route::get('post/{post}',[PostController::class,'getIndex']);
+Route::get('post/{post}',[PostController::class,'getIndex'])->where('post','[A-z-\_]+');
+
 
 Route::get('/users/{user}/posts/{post}', function (User $user, Post $post) {
     return $post;
@@ -30,3 +31,5 @@ Route::get('/users/{user}/posts/{post}', function (User $user, Post $post) {
 Route::prefix('posting')->group(function () {
     Route::get('/show-bar-chart', [PostController::class,'showBarChart']);
 });
+
+
