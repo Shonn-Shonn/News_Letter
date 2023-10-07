@@ -9,6 +9,11 @@ use Illuminate\Filesystem\Cache;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+
+    }
+    
     public function getIndex($slug)
     {
         $path = resource_path("posts/{$slug}.html");
@@ -34,4 +39,40 @@ class PostController extends Controller
 
         return view('post-show-barchart',compact('aug','sep','oct'));
     }
+
+    public function showPostCollections()
+    {
+        return;
+    }
+
+    public function createPost()
+    {
+        return;
+    }
+
+    public function storePost()
+    {
+        return;
+    }
+
+    public function showPostFromResources()
+    {
+        return;
+    }
+
+    public function likePost()
+    {
+        return;
+    }
+
+    public function unlikePost()
+    {
+        return;
+    }
+
+    public function savePost()
+    {
+
+    }
+
 }
