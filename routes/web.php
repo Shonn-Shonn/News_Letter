@@ -29,7 +29,23 @@ Route::get('/users/{user}/posts/{post}', function (User $user, Post $post) {
 
 
 Route::prefix('posting')->group(function () {
-    Route::get('/show-bar-chart', [PostController::class,'showBarChart']);
+    Route::get('/show-bar-chart', [PostController::class, 'showBarChart']);
+    Route::get('/show-post-collections', [PostController::class, 'showPostCollections']);
+    Route::get('/create', [PostController::class,'createPost']);
+    Route::post('/store', [PostController::class, 'storePost']);
+    Route::get('/show-post-from-resources', [PostController::class, 'showPostFromResources']);
+    Route::get('/like-post', [PostController::class, 'likePost']);
+    Route::get('/unlike-post', [PostController::class, 'unlikePost']);
+    Route::get('/save-post', [PostController::class, 'savePost']);
 });
 
+Route::prefix('author')->group(function() {
+    Route::get('/create', [AuthorController::class, 'create']);
+    Route::post('/store', [AuthorController::class, 'store']);
+    Route::get('/edit', [AuthorController::class, 'edit']);
+    Route::post('/update', [AuthorController::class, 'update']);
+    Route::get('/delete', [AuthorController::class, 'delete']);
+    Route::get('/show-author-list', [AuthorController::class, 'showAuthorList']);
+    Route::get('/popular-authors', [AuthorController::class, 'popularAuthors']);
+});
 
