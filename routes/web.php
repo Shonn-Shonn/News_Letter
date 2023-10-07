@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,6 @@ Route::prefix('author')->group(function() {
     Route::get('/popular-authors', [AuthorController::class, 'popularAuthors']);
 });
 
+Route::prefix('auth')->group(function() {
+    Route::get('/register', [RegisterController::class, 'create']);
+});
